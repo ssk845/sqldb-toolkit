@@ -1,1 +1,1 @@
-Power DB scripts
+PowerShell DB scripts mostly using dbatools
