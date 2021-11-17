@@ -10,7 +10,7 @@ param(
     [parameter(Mandatory=$true)]
     [String] $LocalSecondaryPath
       )
-      
+
 $credential = Get-AutomationPSCredential -Name 'sqlps'
 
 Backup-DbaDatabase -SqlInstance $SourceSqlInstance -SqlCredential $credential -Database $Database -Type Full -CompressBackup -Path $BackupShare -BackupFileName $Databasename.bak
@@ -173,7 +173,5 @@ EXEC msdb.dbo.sp_update_job `
 END"
 
 Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job LSBackup_$Database
-Start-Sleep -s 10
-Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job LSCopy_$Database
-Start-Sleep -s 10
-Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job LSRestore_$Database
+Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job @(LSCopy_$Database,LSRestore_$Database) -Wait
+Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job Alert_$SourceSqlInstance
