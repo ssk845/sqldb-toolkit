@@ -171,7 +171,8 @@ EXEC msdb.dbo.sp_update_job `
 		,@enabled = 1 `
 `
 END"
-
+LSCopy_$Database='LSCopy_$Database'
+LSRestore_$Database = 'LSRestore_$Database'
 Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job LSBackup_$Database
-Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job @(LSCopy_$Database,LSRestore_$Database) -Wait
+Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job @('LSCopy_$Database','LSRestore_$Database') -Wait
 Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job Alert_$SourceSqlInstance
