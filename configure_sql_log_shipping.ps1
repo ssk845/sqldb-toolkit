@@ -173,5 +173,5 @@ EXEC msdb.dbo.sp_update_job `
 END"
 
 Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job LSBackup_$Database
-Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job LSCopy_$Database -Job LSRestore_$Database -Wait
+Start-DbaAgentJob -SqlInstance $DestinationSqlInstance -SqlCredential $credential -Job LSCopy_$Database,LSRestore_$Database -Wait
 Start-DbaAgentJob -SqlInstance $SourceSqlInstance -SqlCredential $credential -Job Alert_$SourceSqlInstance
