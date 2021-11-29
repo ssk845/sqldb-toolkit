@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "..\\..\\sqlrunbooks"
+		},
+		{
+			"path": ".."
 		}
 	],
 	"settings": {}
