@@ -1,7 +1,7 @@
 # Get input values
 $SQLInstance = Read-Host "Input SQL Instance" 
-$StartAudit = Read-Host "Input Start Audit Date"
-$EndAudit = Read-Host "Input End Audit Date"
+$StartAudit = Read-Host "Input Start Audit Date (YYYY-MM-DD)"
+$EndAudit = Read-Host "Input End Audit Date (YYYY-MM-DD)"
 $Path = Read-Host "Input Path Generate Audit File" 
 # Get sql login from keyvault
 $sqladmin = 'sqlprb'
