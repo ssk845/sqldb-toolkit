@@ -67,5 +67,5 @@ exec sp_addpushsubscription_agent @publication = N'$PublisherName', @subscriber 
 @enabled_for_syncmgr = N'False', @dts_package_location = N'Distributor'
 GO"
 
-# Enable and start Sanpshot SQL Job 
+# start Sanpshot SQL Job 
 Start-DbaAgentJob -SqlInstance $SqlInstance -SqlCredential $sqlcredential -Job $SqlInstance-AdventureWorksLT2019-$PublisherName-1 
