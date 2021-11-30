@@ -1,3 +1,5 @@
+# Connect to Azure
+Connect-AzAccount
 # Get input values
 $SQLInstance = Read-Host "Input SQL Instance" 
 $Database = Read-Host "Input Database Name" 
