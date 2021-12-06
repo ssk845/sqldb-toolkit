@@ -1,4 +1,4 @@
-Connect-AzAccount
+Connect-AzAccount | Out-null
 # Get input
 $SQLInstance = Read-Host "Input SQL Instance" 
 $Database = Read-Host "Input Database Name"
