@@ -1,5 +1,5 @@
-# Connect to Azure
-Connect-AzAccount
+# Connect to Azure and suppress the output
+Connect-AzAccount | Out-Null
 # Get input
 $serverName = Read-Host "Input servername" 
 $sqllogin = Read-Host "Input SQL login" 
