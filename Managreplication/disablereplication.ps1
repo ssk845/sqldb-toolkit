@@ -1,5 +1,5 @@
-# Connect to Azure
-Connect-AzAccount
+# Connect to Azure and suppress the output
+Connect-AzAccount | Out-Null
 # Get input
 $SqlInstance = Read-Host "Input SQL Instance" 
 $PublisherName = 'TestPub'

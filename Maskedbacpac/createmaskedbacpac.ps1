@@ -1,5 +1,5 @@
-# Connect to Azure
-Connect-AzAccount
+# Connect to Azure and suppress the output
+Connect-AzAccount | Out-Null
 # Get input values
 $SQLInstance = Read-Host "Input SQL Instance" 
 $Database = Read-Host "Input Database Name" 

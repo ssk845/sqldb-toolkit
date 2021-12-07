@@ -1,6 +1,6 @@
 #Sample script to configure SQL Replication of Product Table from AdventureWorks Database
-# Connect to Azure
-Connect-AzAccount
+# Connect to Azure and suppress the output
+Connect-AzAccount | Out-Null
 # Get input
 $SqlInstance = Read-Host "Input SQL Instance" 
 $DestinationDB = Read-Host "Input Destination Database"

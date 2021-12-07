@@ -1,3 +1,5 @@
+# Connect to Azure and suppress the output
+Connect-AzAccount | Out-Null
 # Get input values
 $SQLInstance = Read-Host "Input SQL Instance" 
 $StartAudit = Read-Host "Input Start Audit Date (YYYY-MM-DD)"
