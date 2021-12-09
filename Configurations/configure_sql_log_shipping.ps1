@@ -1,3 +1,27 @@
+#
+# Retrieve run as account, log into azure 
+#
+ 
+# cloud service
+if ($compute -eq "automation") 
+{
+    # Grab run as connection 
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection;
+ 
+    # Connect to azure subscription 
+    Add-AzureRMAccount 
+      -ServicePrincipal -Tenant $Conn.TenantID `
+      -ApplicationId $Conn.ApplicationID `
+      -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null;
+};
+
+# cloud service
+if ($compute -eq "automation") 
+{
+    # Retrieved saved credential 
+    $Credential = Get-AutomationPSCredential -Name 'sqlps';
+};
+
 param(
     [parameter(Mandatory=$true)]
 	[String] $SourceSqlInstance,
