@@ -32,7 +32,8 @@ CASE encryption_state
          ELSE 'No Status'
          END,
 percent_complete,encryptor_thumbprint, encryptor_type  FROM sys.dm_database_encryption_keys
-GO"
+GO" | Format-Table
+
 # enable configuration to support TDE
 Invoke-DbaQuery -SqlInstance $SqlInstance -SqlCredential $sqladmin -Query "USE master
 GO
@@ -98,4 +99,4 @@ CASE encryption_state
          ELSE 'No Status'
          END,
 percent_complete,encryptor_thumbprint, encryptor_type  FROM sys.dm_database_encryption_keys
-GO"
+GO" | Format-Table
