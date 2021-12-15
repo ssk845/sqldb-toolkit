@@ -4,9 +4,10 @@ Connect-AzAccount | Out-Null
 $SQLInstance = Read-Host "Input SQL Instance" 
 $StartAudit = Read-Host "Input Start Audit Date (YYYY-MM-DD)"
 $EndAudit = Read-Host "Input End Audit Date (YYYY-MM-DD)"
-$Path = Read-Host "Input Path Generate Audit File" 
+#$Path = Read-Host "Input Path Generate Audit File" 
 # Get sql login from keyvault
 $sqladmin = 'sqlprb'
+$vault='toolscreds'
 $secretdetail = Get-AzKeyVaultSecret -VaultName $vault -Name $sqladmin
 $sqlcredential = New-Object System.Management.Automation.PSCredential ($secretdetail.Name, $secretdetail.SecretValue)
 $output = Invoke-DbaQuery -SqlInstance $SQLInstance  -SqlCredential $sqlcredential -Query "SELECT 
