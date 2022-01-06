@@ -7,6 +7,7 @@ $database = Read-Host "Input database name"
 $rolename = Read-Host "Input role name (e.g. db_datareader, db_datawriter, db_owner)"
 # Get sql login from keyvault
 $sqladmin = 'sqlprb'
+$vault = 'toolscreds'
 $secretdetail = Get-AzKeyVaultSecret -VaultName $vault -Name $sqladmin
 $sqlcredential = New-Object System.Management.Automation.PSCredential ($secretdetail.Name, $secretdetail.SecretValue)
 # Generate random password - change the rules according to the policy 
@@ -16,10 +17,9 @@ $password = [System.Web.Security.Membership]::GeneratePassword(50, 1)
 # Remove unwanted characters 
 $pattern = '[^a-zA-Z0-9#$!]' 
 # Trim password ~ length = 16 
-$password = ($password -replace $pattern, '').Substring(1, 16)
+$password = ($password -replace $pattern, 'a').Substring(20)
 # define variables
 $key1 = $sqllogin
-$vault = 'toolscreds'
 $secret1 = $password
 # Check if key exists
 $present = Get-AzKeyVaultSecret -VaultName $vault -Name $key1 -ErrorAction SilentlyContinue
