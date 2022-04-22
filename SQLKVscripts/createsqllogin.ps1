@@ -17,7 +17,7 @@ $password = [System.Web.Security.Membership]::GeneratePassword(50, 1)
 # Remove unwanted characters 
 $pattern = '[^a-zA-Z0-9#$!]' 
 # Trim password ~ length = 16 
-$password = ($password -replace $pattern, 'a').Substring(20)
+$password = ($password -replace $pattern, 'a').Substring(1, 16)
 # define variables
 $key1 = $sqllogin
 $secret1 = $password
