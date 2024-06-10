@@ -4,7 +4,7 @@ PowerShell DB scripts mostly using dbatools. Each folder is based on various ope
     - backupDBblob.ps1: Powershell script to create a full backup to Azure Blob Storage 
     - getlastDBbackup.ps1: Get last backup details and display in Grid view
 
-- Configurations: 
+- Configurations:
     - configure_enable_sql_replication.ps1: Sample script to configure SQL Replication of Product Table from AdventureWorks Database. Script uses Azure keyvault to manage the passwords. 
     - configure_sql_log_shipping.ps1: Azure automatation script to configure SQL Server Log Shipping 
 
